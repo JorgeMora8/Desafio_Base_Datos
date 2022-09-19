@@ -36,7 +36,7 @@ const renderizarProductos = (data) => {
             <div class="productoItem">
                 <h3 class="nombreItem">${element.nombre}</h3>
                 <b class="precioItem">${element.precio}</b>
-                <img src="${element.img}" width="200px" class="imgItem"/>
+                <img src="${element.imagen}" width="200px" class="imgItem"/>
             </div>
             `
         )}).join(" "); 

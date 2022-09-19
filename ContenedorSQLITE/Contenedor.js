@@ -6,14 +6,14 @@ class ContenedorSqlite {
     }
 
     CrearTabla(){
-        return this.knex.schema.dropTableIfExists("mensajes").finally(() => {
+      
           return this.knex.schema.createTable("mensajes", (table) => {
             table.increments("id").primary();
             table.string("nombre", 20).notNullable();
             table.string("texto", 50);
             table.string("date", 20);
           });
-        });
+        
       }
 
       Guardar(mensaje) {

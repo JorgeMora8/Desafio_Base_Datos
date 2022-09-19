@@ -4,15 +4,19 @@ class ContenedorMysql {
     }
 
     crearTabla() {
-        return this.knex.schema.dropTableIfExists("productos").finally(() => {
-          return this.knex.schema.createTable("productos", (table) => {
-            table.increments("id").primary();
-            table.string("nombre", 50).notNullable();
-            table.float("precio");
-            table.string("imagen");
-          });
-        });
-      }
+      return this.knex.schema.hasTable("productos").then((data) => { 
+        if(!data){ 
+          this.knex.schema.createTable("productos", (tabla) => { 
+            tabla.increments('id'),
+                    tabla.string('nombre'),
+                    tabla.integer('precio')
+                    tabla.string("imagen")
+          })
+        }
+      }).catch((err) => { 
+        console.log(err)
+      })
+    }
     
       Guardar(producto) {
         return this.knex("productos").insert(producto);

@@ -57,7 +57,8 @@ io.on("connection", async (socket) => {
 
     socket.on("nuevoProducto", async (data) => { 
       await ClienteMysql.Guardar(data)
-       io.sockets.emit('productos',ClienteMysql.ObtenerProductos())
+       io.sockets.emit('productos', await ClienteMysql.ObtenerProductos())
+ 
     })
 
 
