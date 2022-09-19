@@ -48,7 +48,7 @@ app.get("/", (req,res) => {
 io.on("connection", async (socket) => { 
 
     // await ClienteMysql.crearTabla();
-    //  ClienteSqlite.CrearTabla()
+    // await ClienteSqlite.CrearTabla()
  
 
 
